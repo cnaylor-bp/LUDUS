@@ -1,0 +1,8 @@
+#!/bin/bash
+
+ludus testing allow -d agent.siem.production.snap.bpcyber.com
+ludus testing allow -d agent.sega.production.snap.bpcyber.com
+ludus testing allow -d agent-sega-production-snap.bpcyber.net
+ludus testing allow -d tenant-agent-update-production-black.s3.us-east-1.amazonaws.com
+ludus testing allow -d portal.blackpointcyber.com
+ludus testing allow -d installer.blackpointcyber.com
