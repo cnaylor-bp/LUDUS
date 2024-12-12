@@ -1,0 +1,5 @@
+$username = "Adv_Svc"
+$password = "StrongPassword123" | ConvertTo-SecureString -AsPlainText -Force
+New-ADUser -SamAccountName $username -Name "Adv Service Admin" -UserPrincipalName $username@yourdomain.com -Enabled $true -AccountPassword $password
+Add-ADGroupMember -Identity "Domain Admins" -Members $username
+
