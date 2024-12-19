@@ -1,0 +1,29 @@
+- vm_name: "{{ range_id }}-ad-dc-win2022-server-x64"
+    hostname: "{{ range_id }}-DC01-2022
+    template: SNAP-win2022-server-x64-template
+    vlan: 10
+    ip_last_octet: 11
+    ram_gb: 8
+    cpus: 4
+    windows:
+      sysprep: false
+    domain:
+      fqdn: ludus.network
+      role: primary-dc
+    role.vars:
+      ansible_win_async_startup_timeout: 10000
+- vm_name: "{{ range_id }}-default-gateway
+    hostname: "{{ range_id }}-gateway
+    template: win11-22h2-x64-enterprise-template
+    vlan: 10
+    ip_last_octet: 21
+    ram_gb: 8
+    cpus: 4
+    windows:
+      office_version: 2019
+      office_arch: 64bit
+    domain:
+      fqdn: ludus.network
+      role: member
+    role.vars:
+      ansible_win_async_startup_timeout: 10000
