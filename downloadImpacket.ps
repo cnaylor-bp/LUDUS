@@ -10,8 +10,8 @@ Invoke-WebRequest -Uri $python_url -OutFile $python_filename
 # Install Python silently
 Start-Process msiexec.exe -Wait -ArgumentList '/i "$python_filename" /quiet'
 
-# Remove the installer file
-Remove-Item $python_filename
+# Remove the installer file (if desired)
+# Remove-Item $python_filename
 
 
 ### INSTALL IMPACKET ###
@@ -29,4 +29,4 @@ Set-MpPreference -DisableRealtimeMonitoring $true
 Expand-Archive $impacket_filename
 
 # Re-enable Defender (if desired)
-Set-MpPreference -DisableRealtimeMonitoring $false
+# Set-MpPreference -DisableRealtimeMonitoring $false
