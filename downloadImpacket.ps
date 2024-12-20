@@ -1,0 +1,32 @@
+### INSTALL PYTHON ###
+
+# Specify the download URL and filename
+$python_url = "https://www.python.org/ftp/python/3.12.8/python-3.12.8-amd64.exe"
+$python_filename = "python-3.12.8-amd64.exe"
+
+# Download the installer
+Invoke-WebRequest -Uri $python_url -OutFile $python_filename
+
+# Install Python silently
+Start-Process msiexec.exe -Wait -ArgumentList '/i "$python_filename" /quiet'
+
+# Remove the installer file
+Remove-Item $python_filename
+
+
+### INSTALL IMPACKET ###
+# Specify the download URL and filename
+$impacket_url = "https://github.com/CoreSecurity/impacket/archive/refs/heads/master.zip"
+$impacket_filename = "impacket.zip"
+
+# Download the Impacket archive
+Invoke-WebRequest -Uri $impacket_url -OutFile $impacket_filename
+
+# Disable Defender
+Set-MpPreference -DisableRealtimeMonitoring $true
+
+# Extract the downloaded archive
+Expand-Archive $impacket_filename
+
+# Re-enable Defender (if desired)
+Set-MpPreference -DisableRealtimeMonitoring $false
