@@ -1,0 +1,8 @@
+  # Download the Winget installer
+  Invoke-WebRequest -Uri "https://github.com/microsoft/winget-cli/releases/latest/download/winget-setup.exe" -OutFile winget-setup.exe
+
+  # Install Winget
+  Start-Process -FilePath winget-setup.exe -ArgumentList "/Install" -Wait
+
+  # Remove the installer file
+  Remove-Item winget-setup.exe
